@@ -1,0 +1,35 @@
+[ ] Phase 1 - Product Shell and Core Architecture
+[ ] 1.1 Initialize React + TypeScript project with Bun
+[ ] 1.2 Add routing, app shell, and environment schema validation
+[ ] 1.3 Configure lint, typecheck, and test scripts
+[ ] 1.4 Configure CI and Vercel preview deploy
+
+[ ] Phase 2 - Auth and User Profiles
+[ ] 2.1 Select and configure auth provider
+[ ] 2.2 Implement signup/login/logout flows
+[ ] 2.3 Add protected routes and profile persistence
+
+[ ] Phase 3 - Transaction Ingestion and Normalization
+[ ] 3.1 Create Plaid Link frontend flow
+[ ] 3.2 Implement backend token exchange endpoint
+[ ] 3.3 Build transaction sync and normalization pipeline
+
+[ ] Phase 4 - Challenge Engine and Daily Loop
+[ ] 4.1 Define and seed 20 challenge templates
+[ ] 4.2 Implement daily challenge assignment logic
+[ ] 4.3 Implement completion tracking and streak updates
+
+[ ] Phase 5 - Analytics and Behavior Change Metrics
+[ ] 5.1 Define baseline and comparison KPI metrics
+[ ] 5.2 Build user metrics dashboard
+[ ] 5.3 Add cohort view for 3-day streak impact analysis
+
+[ ] Phase 6 - Monetization and Plan Gating
+[ ] 6.1 Define free/pro/premium entitlements
+[ ] 6.2 Implement feature gates in app and API
+[ ] 6.3 Add Stripe test mode billing flow
+
+[ ] Phase 7 - Quality, Security, and Launch Readiness
+[ ] 7.1 Add monitoring, logging, and alerting
+[ ] 7.2 Run privacy/security checklist and fix high-severity issues
+[ ] 7.3 Complete launch checklist and tag beta release
