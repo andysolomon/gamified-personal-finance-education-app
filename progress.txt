@@ -1,35 +1,87 @@
-[ ] Phase 1 - Product Shell and Core Architecture
-[ ] 1.1 Initialize React + TypeScript project with Bun
-[ ] 1.2 Add routing, app shell, and environment schema validation
-[ ] 1.3 Configure lint, typecheck, and test scripts
-[ ] 1.4 Configure CI and Vercel preview deploy
+## Sprint 1 — Product Shell and Core Architecture
+[ ] W-000001: Initialize Next.js + TypeScript project with Bun, Tailwind, and shadcn/ui
+[ ] W-000002: Add app shell layout with responsive nav and route structure
+[ ] W-000003: Implement env schema validation with startup guard
+[ ] W-000004: Configure ESLint, Prettier, TypeScript strict mode, and Vitest
+[ ] W-000005: Set up GitHub Actions CI pipeline (lint, typecheck, test, build)
+[ ] W-000006: Configure Vercel project with preview deploys on PR (HITL)
 
-[ ] Phase 2 - Auth and User Profiles
-[ ] 2.1 Select and configure auth provider
-[ ] 2.2 Implement signup/login/logout flows
-[ ] 2.3 Add protected routes and profile persistence
+## Sprint 2 — Auth and User Profiles
+[ ] W-000007: Set up Supabase project and DB schema for users and profiles (HITL)
+[ ] W-000008: Implement signup and login pages with Supabase Auth
+[ ] W-000009: Add session persistence, logout, and auth context provider
+[ ] W-000010: Build onboarding profile form (age band, goals, risk tolerance)
+[ ] W-000011: Implement protected route guard and redirect logic
+[ ] W-000012: Add profile persistence to Supabase with Row Level Security
 
-[ ] Phase 3 - Transaction Ingestion and Normalization
-[ ] 3.1 Create Plaid Link frontend flow
-[ ] 3.2 Implement backend token exchange endpoint
-[ ] 3.3 Build transaction sync and normalization pipeline
+## Sprint 3 — Transaction Ingestion (Plaid Link + Token Exchange)
+[ ] W-000013: Create DB schema for linked accounts and transactions
+[ ] W-000014: Build API route for Plaid link token creation
+[ ] W-000015: Integrate Plaid Link React component (HITL)
+[ ] W-000016: Build API route for public token exchange and access token storage
+[ ] W-000017: Add linked accounts list UI with connection status
 
-[ ] Phase 4 - Challenge Engine and Daily Loop
-[ ] 4.1 Define and seed 20 challenge templates
-[ ] 4.2 Implement daily challenge assignment logic
-[ ] 4.3 Implement completion tracking and streak updates
+## Sprint 4 — Transaction Sync and Normalization
+[ ] W-000018: Build API route for transaction sync (Plaid /transactions/sync)
+[ ] W-000019: Implement transaction normalization rules (category mapping) (HITL)
+[ ] W-000020: Add transaction list UI with filtering and search
+[ ] W-000021: Implement sync trigger on account link and daily cron
+[ ] W-000022: Add sync error handling and retry logic
 
-[ ] Phase 5 - Analytics and Behavior Change Metrics
-[ ] 5.1 Define baseline and comparison KPI metrics
-[ ] 5.2 Build user metrics dashboard
-[ ] 5.3 Add cohort view for 3-day streak impact analysis
+## Sprint 5 — Challenge Engine Foundation
+[ ] W-000023: Create DB schema for challenge templates, assignments, and completions
+[ ] W-000024: Design and seed first 10 challenge templates (HITL)
+[ ] W-000025: Build daily challenge scheduler API route
+[ ] W-000026: Add today's challenge card UI on dashboard
 
-[ ] Phase 6 - Monetization and Plan Gating
-[ ] 6.1 Define free/pro/premium entitlements
-[ ] 6.2 Implement feature gates in app and API
-[ ] 6.3 Add Stripe test mode billing flow
+## Sprint 6 — Challenge Completion and Streaks
+[ ] W-000027: Implement challenge completion flow (manual + auto-evaluated)
+[ ] W-000028: Build streak tracking logic
+[ ] W-000029: Add streak display and reward feedback UI
+[ ] W-000030: Design and seed second batch of 12 templates (debt + advanced) (HITL)
+[ ] W-000031: Add challenge history page
 
-[ ] Phase 7 - Quality, Security, and Launch Readiness
-[ ] 7.1 Add monitoring, logging, and alerting
-[ ] 7.2 Run privacy/security checklist and fix high-severity issues
-[ ] 7.3 Complete launch checklist and tag beta release
+## Sprint 7 — Challenge Polish and Daily Loop Hardening
+[ ] W-000032: Implement challenge expiration at midnight
+[ ] W-000033: Add difficulty progression based on streak length
+[ ] W-000034: Build reward/points system (HITL)
+[ ] W-000035: Add notification stub for daily reminder
+[ ] W-000036: E2E test of full challenge lifecycle (Playwright)
+
+## Sprint 8 — Analytics Foundation and Baseline Metrics
+[ ] W-000037: Create DB schema for spending snapshots
+[ ] W-000038: Build baseline spending snapshot computation
+[ ] W-000039: Implement rolling 7-day and 30-day comparisons
+[ ] W-000040: Build spending overview dashboard with Recharts
+[ ] W-000041: Add category-level spending breakdown
+
+## Sprint 9 — Behavior Change KPIs and Cohort View
+[ ] W-000042: Define and implement 3+ behavior-change KPI computations (HITL)
+[ ] W-000043: Build KPI dashboard cards with trend indicators
+[ ] W-000044: Add cohort comparison view (active vs lapsed)
+[ ] W-000045: Implement periodic KPI recomputation job
+
+## Sprint 10 — Monetization: Plans, Gates, and Stripe Checkout
+[ ] W-000046: Define plan tiers and feature entitlement matrix (HITL)
+[ ] W-000047: Create DB schema for subscriptions and entitlements
+[ ] W-000048: Implement feature gate utility and useEntitlement hook
+[ ] W-000049: Set up Stripe products/prices and build checkout API route (HITL)
+
+## Sprint 11 — Monetization: Webhooks, Pricing UI, and Gate Wiring
+[ ] W-000050: Build Stripe webhook handler for subscription lifecycle
+[ ] W-000051: Add pricing page and upgrade/downgrade UI
+[ ] W-000052: Integrate feature gates into challenge and analytics pages
+
+## Sprint 12 — Security Hardening and Error Tracking
+[ ] W-000053: Add rate limiting to all API routes
+[ ] W-000054: Implement input validation and sanitization
+[ ] W-000055: Integrate error tracking (Sentry) (HITL)
+[ ] W-000056: Run privacy and security review checklist (HITL)
+[ ] W-000057: Add audit logging for sensitive operations
+
+## Sprint 13 — Launch Readiness and Beta Release
+[ ] W-000058: Write onboarding flow copy and help docs (HITL)
+[ ] W-000059: Add loading states, error boundaries, empty states
+[ ] W-000060: Performance audit and bundle optimization
+[ ] W-000061: Final QA — E2E smoke test of all flows (Playwright) (HITL)
+[ ] W-000062: Create beta release tag and deployment checklist (HITL)

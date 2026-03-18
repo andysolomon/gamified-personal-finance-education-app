@@ -176,9 +176,31 @@ Harden app for initial beta users.
 - enterprise employer contract workflow: deferred
 - advanced adaptive learning model: deferred
 
+## Tech Stack (Locked In)
+- **Frontend**: Next.js 14+ (App Router) + TypeScript + Tailwind CSS + shadcn/ui
+- **Backend**: Next.js API Route Handlers (replaces Supabase Edge Functions)
+- **Database/Auth**: Supabase (Postgres + Auth + RLS)
+- **Banking**: Plaid (sandbox only for MVP)
+- **Payments**: Stripe (test mode)
+- **Charts**: Recharts
+- **Testing**: Vitest (unit/integration per sprint) + Playwright (E2E at milestones)
+- **Package Manager**: Bun
+- **Deploy**: Vercel
+- **CI**: GitHub Actions
+
+## Key Decisions
+- Next.js App Router for both frontend and API routes (no separate backend)
+- Incremental DB migrations per sprint (not one big upfront schema)
+- Monetization split across 2 sprints to reduce risk
+- Plaid stays in sandbox for entire MVP — real bank linking is post-beta
+- Unit + integration tests required for each issue's core logic
+
+## Sprint Structure
+See progress.txt for the full 13-sprint, 62-issue breakdown (W-000001 through W-000062).
+All issues tracked on GitHub with Gherkin acceptance criteria.
+Project board: https://github.com/users/andysolomon/projects/5
+
 ## Next Concrete Steps
-1. Initialize tech stack repo (React + TypeScript + Bun + Vercel).
-2. Set up auth provider and DB schema for users/challenges/transactions.
-3. Integrate Plaid sandbox and verify token exchange path.
-4. Implement first 20 challenge templates with scheduler.
-5. Add KPI dashboard for 30-day behavior change experiment.
+1. Begin Sprint 1: Initialize Next.js + TypeScript project (W-000001)
+2. Set up app shell and routing (W-000002)
+3. Configure CI pipeline and Vercel deploys (W-000005, W-000006)
