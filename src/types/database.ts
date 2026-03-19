@@ -1,3 +1,5 @@
+import type { AppCategory } from "@/lib/categories";
+
 export type AgeBand = "under-18" | "18-24" | "25-34" | "35-44" | "45-54" | "55-64" | "65-plus";
 
 export type RiskTolerance = "conservative" | "moderate" | "aggressive";
@@ -65,3 +67,8 @@ export interface Transaction {
   pending: boolean;
   created_at: string;
 }
+
+export type TransactionWithCategory = Transaction & {
+  app_category: AppCategory | null;
+  app_subcategory: string | null;
+};

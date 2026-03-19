@@ -20,3 +20,9 @@ export const exchangeTokenRequestSchema = z.object({
 });
 
 export type ExchangeTokenRequest = z.infer<typeof exchangeTokenRequestSchema>;
+
+export const syncRequestSchema = z.object({
+  plaid_item_id: z.string().uuid("plaid_item_id must be a valid UUID"),
+});
+
+export type SyncRequest = z.infer<typeof syncRequestSchema>;

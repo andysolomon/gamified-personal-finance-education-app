@@ -1,0 +1,1 @@
+create index idx_transactions_category_primary on public.transactions(category_primary);
