@@ -2,11 +2,14 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { LogOut } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useAuth } from "@/hooks/use-auth";
 import { navItems } from "./nav-items";
 
 export function Sidebar() {
   const pathname = usePathname();
+  const { user, signOut } = useAuth();
 
   return (
     <aside className="bg-card hidden h-screen w-64 flex-col border-r md:flex">
@@ -35,6 +38,18 @@ export function Sidebar() {
           );
         })}
       </nav>
+      {user && (
+        <div className="border-t p-4">
+          <p className="text-muted-foreground mb-2 truncate text-xs">{user.email}</p>
+          <button
+            onClick={() => signOut()}
+            className="text-muted-foreground hover:text-foreground flex w-full items-center gap-3 rounded-md px-3 py-2 text-sm font-medium transition-colors"
+          >
+            <LogOut className="h-4 w-4" />
+            Sign out
+          </button>
+        </div>
+      )}
     </aside>
   );
 }

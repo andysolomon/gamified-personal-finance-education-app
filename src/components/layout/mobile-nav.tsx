@@ -2,11 +2,14 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { LogOut } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useAuth } from "@/hooks/use-auth";
 import { navItems } from "./nav-items";
 
 export function MobileNav() {
   const pathname = usePathname();
+  const { user, signOut } = useAuth();
 
   return (
     <nav className="bg-card fixed inset-x-0 bottom-0 z-50 border-t md:hidden">
@@ -27,6 +30,15 @@ export function MobileNav() {
             </Link>
           );
         })}
+        {user && (
+          <button
+            onClick={() => signOut()}
+            className="text-muted-foreground flex flex-col items-center gap-1 px-3 py-1 text-xs transition-colors"
+          >
+            <LogOut className="h-5 w-5" />
+            Sign out
+          </button>
+        )}
       </div>
     </nav>
   );

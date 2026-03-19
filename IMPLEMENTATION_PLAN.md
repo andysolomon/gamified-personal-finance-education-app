@@ -1,258 +1,242 @@
 # IMPLEMENTATION_PLAN
 
 ## Objective
-
-Build an MVP mobile-first web app that helps young adults improve financial behavior using short daily challenges linked to real transaction data.
+Build a mobile-first finance learning app that changes money behavior through short daily, transaction-aware challenges.
 
 ## Scope Boundaries
-
 In scope (MVP):
-
 - onboarding and auth
-- account linking via Plaid sandbox/dev
-- challenge engine with daily tasks
-- streaks and progress tracking
-- behavior metric dashboard
-- basic subscription gating (stubbed or test mode)
+- bank-linking integration (Plaid sandbox)
+- daily challenge engine and streaks
+- behavior-change metrics dashboard
+- subscription plan gating and billing test flow
 
 Out of scope (MVP):
-
-- employer/HR enterprise portal
-- complex ML personalization
-- insurer/credit/real-estate data sales integrations
-- production-grade multi-region infrastructure
+- enterprise HR admin suite beyond pilot hooks
+- advanced adaptive ML recommendation engine
+- insurer/real-estate data partnerships
+- production-grade multi-region operations
 
 ## Current Baseline
+Gap mode (implementation scaffold exists):
+- Next.js + TypeScript + Bun project is present.
+- `progress.txt` contains a 13-sprint / 62-work-item backlog.
+- Plan needs alignment with newly extracted IdeaBrowser subpage evidence.
 
-Greenfield mode (no implementation detected in this repo yet).
+## IdeaBrowser Evidence (Updated 2026-03-18)
+Source idea: `https://www.ideabrowser.com/idea/gamified-personal-finance-education-app`
 
-## Phase 1: Product Shell and Core Architecture
+### Confirmed Extracted Sections
+- Main page: full concept, pricing anchors, scores, audience, competitor signal.
+- `value-ladder`: extracted in full.
+- `why-now`: extracted in full.
+- `proof-signals`: extracted in full.
+- `market-gap`: extracted in full.
+- `execution-plan`: extracted in full.
+- `value-equation`: extracted in full.
+- `value-matrix`: extracted in full.
+- `acp`: extracted in full.
+- `keywords`: extracted in full.
+- `feasibility-score`: extracted in full.
+- `problem-score`: extracted in full.
 
+### Value Ladder (Confirmed)
+- Lead magnet: Finance Fundamentals Quiz (Free)
+- Frontend offer: Premium Starter Pack ($5/month)
+- Core offer: All-Access Finance Academy ($10/month)
+- Continuity: Community Plus Membership ($15/month)
+- Backend: Corporate Wellness Finance Program ($10,000/year)
+
+### Why-Now (Confirmed)
+- Overall rating: 8/10
+- Market timing: 9/10
+- Tech enablers: 8/10
+- Regulatory/social catalysts: 6/10
+- Risk reduction: 8/10
+- Competitive window: 9/10
+- Timing risks: 5/10
+
+### Proof-Signals (Confirmed)
+- Overall rating: 8/10
+- Frustration signals: 8/10
+- Time-sensitive needs: 9/10
+- Systemic barriers: 7/10
+- Community demand: 8/10
+
+### Market Gap (Confirmed)
+- Overall rating: 8/10
+- Underserved segments: young adults new to finance, gig workers.
+- Feature gaps: daily micro-lessons and real-time tailored lessons.
+- Differentiation lever: education-first positioning with community learning.
+
+### Execution Plan (Confirmed)
+- Classification: B2C, timeline 2-4 weeks, budget $0-10K.
+- Phase 1 (0-6 months): freemium entry with $5 premium, social-led acquisition.
+- Phase 2 (6-18 months): bank-data integration, 100K user / 10K DAU milestone target.
+- Initial channels: Reddit, Instagram, influencer partnerships.
+
+### Framework / Score Pages (Confirmed)
+- Value Equation overall: 8/10.
+  - Dream Outcome 9/10, Perceived Likelihood 8/10, Time Delay 6/10, Effort/Sacrifice 9/10.
+- Value Matrix indicates Category King positioning (score shown as 8/10).
+- ACP page confirms target audience/community/product strategy and 90-day plan alignment.
+- Feasibility score: 9/10 (market/validation 8/10; technical/resources 9.5/10).
+- Problem score: 8/10 (market response 6.5/10; pain type marked acute).
+
+### Keywords (Confirmed)
+- Core keyword shown: personal finance app (201K volume, +507% growth on keywords page header).
+- Fastest/Highest relevant terms include:
+  - personal money management app (301K, +6741%)
+  - apps for budgeting (246K, +397%)
+  - personal finance app (201K, +4468%)
+
+### Remaining Unknown
+- `opportunity-score` route resolves to page-not-found for this idea slug in current run.
+
+## Milestones
+
+## Phase 1: Platform Foundation
 ### Goals
-
-Create the app foundation, environments, and deployable baseline.
+Stabilize core app foundation and delivery pipeline.
 
 ### Deliverables
-
-- React app scaffold with TypeScript
-- routing and layout shell
-- env management and config validation
-- CI lint/type/test/build pipeline
-- Vercel preview deploy
+- app shell, routing, env validation
+- lint/typecheck/test/build CI
+- Vercel preview deployment
 
 ### Dependencies
-
-- GitHub repo
-- Vercel project
-- Node/Bun toolchain
+- GitHub + Vercel wiring
 
 ### Risks
-
-- toolchain drift between local and CI
-- unclear env contract early
+- environment drift between local and CI
 
 ### Acceptance Criteria
+- clean build in CI
+- deterministic local bootstrap
 
-- app boots locally and on preview URL
-- CI passes on pull request
-- environment schema blocks invalid startup
-
-## Phase 2: Auth and User Profiles
-
+## Phase 2: Auth + Profile Onboarding
 ### Goals
-
-Enable user signup/login and persistent profiles.
+Ship secure account lifecycle and initial personalization.
 
 ### Deliverables
-
-- auth screens and session handling
-- profile model (age band, goals, risk tolerance)
+- signup/login/logout
 - protected routes
+- onboarding profile (goals, risk tolerance, age band)
 
 ### Dependencies
-
-- Supabase/Firebase/Auth provider decision
+- Supabase auth and schema
 
 ### Risks
-
-- auth provider lock-in
-- weak session invalidation
+- RLS mistakes and session edge cases
 
 ### Acceptance Criteria
+- auth flow works end-to-end
+- profile persisted and retrievable
 
-- user can sign up/login/logout
-- protected pages deny anonymous access
-
-## Phase 3: Transaction Ingestion and Normalization
-
+## Phase 3: Plaid Link + Transaction Pipeline
 ### Goals
-
-Pull account/transaction data and normalize it for challenge generation.
+Ingest and normalize transactions from linked accounts.
 
 ### Deliverables
-
-- Plaid Link integration (sandbox first)
-- server endpoint for token exchange
-- transaction sync job and normalization rules
+- Plaid link token + public token exchange
+- account linkage state UI
+- normalized transaction storage and sync jobs
 
 ### Dependencies
-
-- Plaid API keys
-- backend runtime (serverless/API route)
+- Plaid sandbox keys
 
 ### Risks
-
-- category mapping inconsistency
-- sync latency and retry failures
+- category mapping quality
+- sync idempotency and retries
 
 ### Acceptance Criteria
+- linked account syncs transactions
+- normalized records available for challenge engine
 
-- connected test account ingests transactions
-- normalized transactions visible in debug/admin view
-
-## Phase 4: Challenge Engine and Daily Loop
-
+## Phase 4: Challenge System (Core Product)
 ### Goals
-
-Generate daily challenges from real behavior patterns.
+Deliver behavior-first daily challenge loop.
 
 ### Deliverables
-
-- challenge templates (spending awareness, saving triggers, debt basics)
-- daily challenge scheduler
-- completion tracking
-- streak logic and rewards primitives
+- challenge template library (min 20)
+- daily challenge assignment
+- completion flow and streak logic
+- challenge history and progression
 
 ### Dependencies
-
-- normalized transaction data
-- profile preferences
+- transaction normalization
 
 ### Risks
-
-- repetitive challenge quality
-- shallow novelty after early days
+- challenge novelty decay after week 2-4
 
 ### Acceptance Criteria
+- daily challenge is assigned and completable
+- streak updates reliably
+- templates cover spending/saving/debt topics
 
-- user receives one daily challenge
-- challenge completion updates streak and metrics
-- 20+ challenge templates available
-
-## Phase 5: Analytics and Behavior Change Metrics
-
+## Phase 5: Analytics + Behavior Change Evidence
 ### Goals
-
-Measure if users change spending behavior after sustained challenge completion.
+Measure whether challenge completion changes real spending behavior.
 
 ### Deliverables
-
-- baseline spending snapshot
-- rolling 7/30 day comparisons
-- measurable behavior-change KPIs
+- baseline vs rolling 7/30-day metrics
+- KPI dashboard (min 3 behavior KPIs)
+- cohort comparison (e.g., streaked vs lapsed)
 
 ### Dependencies
-
-- transaction history and completion events
+- transaction and completion event quality
 
 ### Risks
-
-- weak causal attribution
-- noisy user-level financial data
+- weak attribution signal
 
 ### Acceptance Criteria
+- KPI outputs are consistent and reproducible
+- cohort deltas are visible in UI
 
-- dashboard shows at least 3 behavior metrics
-- cohort view supports "3 consecutive days completed" comparison
-
-## Phase 6: Monetization and Plan Gating
-
+## Phase 6: Monetization Aligned to Value Ladder
 ### Goals
-
-Implement free/pro/premium access controls for features.
+Implement pricing and entitlement gates mapped to IdeaBrowser ladder.
 
 ### Deliverables
-
-- plan definitions (free, $5 starter, $10 all-access)
-- feature gates and entitlement checks
-- billing integration placeholder or Stripe test mode
+- tiers aligned to extracted ladder ($5, $10, $15, B2B path)
+- entitlement checks in app/API
+- Stripe test-mode checkout + webhooks
 
 ### Dependencies
-
-- payment provider setup
+- Stripe product/price setup
 
 ### Risks
-
-- pricing friction during early retention stage
+- plan complexity too early
 
 ### Acceptance Criteria
+- upgrade path works in test mode
+- features correctly gate by plan
 
-- feature access correctly follows active plan
-- upgrade flow works in test mode
-
-## Phase 7: Quality, Security, and Launch Readiness
-
+## Phase 7: Beta Hardening and Launch
 ### Goals
-
-Harden app for initial beta users.
+Prepare a secure and supportable beta release.
 
 ### Deliverables
-
-- privacy and security review checklist
-- rate limiting and API safeguards
-- error tracking and audit logs
-- onboarding docs and support flows
+- input validation + rate limiting
+- error monitoring/audit logs
+- launch checklist and QA pass
 
 ### Dependencies
-
-- baseline telemetry stack
+- observability setup
 
 ### Risks
-
-- financial-data handling gaps
-- insufficient observability
+- unnoticed PII/security gaps
 
 ### Acceptance Criteria
+- no high-severity open security issues
+- beta release checklist complete
 
-- no high-severity security findings open
-- launch checklist complete
-- beta-ready release tag created
-
-## Deferred / Unknown
-
-- full IdeaBrowser subpage details (value ladder deep text, ACP/value matrix details, feasibility/problem/opportunity rationale): unknown due access restrictions during crawl
-- enterprise employer contract workflow: deferred
-- advanced adaptive learning model: deferred
-
-## Tech Stack (Locked In)
-
-- **Frontend**: Next.js 14+ (App Router) + TypeScript + Tailwind CSS + shadcn/ui
-- **Backend**: Next.js API Route Handlers (replaces Supabase Edge Functions)
-- **Database/Auth**: Supabase (Postgres + Auth + RLS)
-- **Banking**: Plaid (sandbox only for MVP)
-- **Payments**: Stripe (test mode)
-- **Charts**: Recharts
-- **Testing**: Vitest (unit/integration per sprint) + Playwright (E2E at milestones)
-- **Package Manager**: Bun
-- **Deploy**: Vercel
-- **CI**: GitHub Actions
-
-## Key Decisions
-
-- Next.js App Router for both frontend and API routes (no separate backend)
-- Incremental DB migrations per sprint (not one big upfront schema)
-- Monetization split across 2 sprints to reduce risk
-- Plaid stays in sandbox for entire MVP — real bank linking is post-beta
-- Unit + integration tests required for each issue's core logic
-
-## Sprint Structure
-
-See progress.txt for the full 13-sprint, 62-issue breakdown (W-000001 through W-000062).
-All issues tracked on GitHub with Gherkin acceptance criteria.
-Project board: https://github.com/users/andysolomon/projects/5
+## Deferred / Out of Scope
+- enterprise admin workflows beyond initial backend offer pilot
+- advanced recommendation ML and adaptive curriculum optimizer
+- partner-data monetization channels
 
 ## Next Concrete Steps
-
-1. Begin Sprint 1: Initialize Next.js + TypeScript project (W-000001)
-2. Set up app shell and routing (W-000002)
-3. Configure CI pipeline and Vercel deploys (W-000005, W-000006)
+1. Reconcile `progress.txt` items to this evidence-updated milestone wording.
+2. Convert extracted score/page evidence into explicit acceptance thresholds in sprint issues (e.g., retention, CAC, churn KPI targets).
+3. Begin execution from Sprint 1 work items and mark completed entries in `progress.txt`.

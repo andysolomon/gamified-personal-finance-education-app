@@ -1,15 +1,16 @@
 import { z } from "zod";
 
 export const envSchema = z.object({
-  // Supabase — optional in Sprint 1, required in Sprint 2
-  NEXT_PUBLIC_SUPABASE_URL: z.string().url().optional(),
-  NEXT_PUBLIC_SUPABASE_ANON_KEY: z.string().min(1).optional(),
+  // Supabase
+  NEXT_PUBLIC_SUPABASE_URL: z.string().url(),
+  NEXT_PUBLIC_SUPABASE_ANON_KEY: z.string().min(1),
   SUPABASE_SERVICE_ROLE_KEY: z.string().optional(),
 
-  // Plaid — future
+  // Plaid
   PLAID_CLIENT_ID: z.string().optional(),
   PLAID_SECRET: z.string().optional(),
   PLAID_ENV: z.string().optional(),
+  NEXT_PUBLIC_PLAID_ENABLED: z.string().optional(),
 
   // Stripe — future
   STRIPE_SECRET_KEY: z.string().optional(),
